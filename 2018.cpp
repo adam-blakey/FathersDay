@@ -1,28 +1,38 @@
-#include <ctime>
-#include <iostream>
-#include <string>
+// LIBRARY INCLUSIONS.
+	#include <ctime>
+	#include <iostream>
+	#include <string>
 
-int numberOfFathersDays(string childrenNames[], int childrenDOBs[]);
+// FUNCTION DELCARATIONS
+	// Returns the number of Fathers' Days as a father.
+	int numberOfFathersDays(string childrenNames[], int childrenDOBs[]);
 
-int numberOfFathersDays(string childrenNames[], int childrenDOBs[])
-{
-	int time = std::time(0);
+	// Returns the timestamp at midnight on the third Sunday of June in the given year.
+	time_t thirdSundayOfJune(int year);
 
-	return time;
-}
+// FUNCTION DEFINITIONS
+	void main()
+	{
+		// Chilrens' names and date-of-births.
+		string names[] = {"Adam", "Ben", "Lauren"};
+		int DOBs[] = {880243200, 993686400, 1122854400};
 
-int main()
-{
-	time_t now = std::time(0);
+		// Outputs the number of Fathers' Days celebrated for those children.
+		std::cout << "You have celebrated " << numberOfFathersDays(names, DOBs) << " Fathers' Days as a father." << endl;
+	}
 
-	string names[] = {"Adam", "Ben", "Lauren"};
-	int ages[] = {2345, 2345, 1234};
+	int numberOfFathersDays(string childrenNames[], int childrenDOBs[])
+	{
+		time_t now = std::time(0);
 
-	int n = numberOfFathersDays(names, ages);
+		return 1;
+	}
 
-	// {"Adam", "Ben", "Lauren"}, {880243200, 993686400, 1122854400}
-	
+	time_t thirdSundayOfJune(int year)
+	{
+		// Some parameters to make my life slightly easier.
+		int June = 5; // Month number (0,11).
+		int day = 6; // Day number (0,6).
 
-	std::cout << "You have celebrated " << n << " years as a father." << endl;
-	return 0;
-}
+
+	}
