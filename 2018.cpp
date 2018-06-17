@@ -49,11 +49,7 @@
 		// Outputs the number of Fathers' Days celebrated for those children.
 		std::cout << "You have celebrated " << numberOfFathersDays(names, DOBs) << " Fathers' Days as a father." << endl;
 
-		thirdSundayOfJune(2018);
-
-		int test[] = {3, 5, 7, 9};
-
-		
+		thirdSundayOfJune(2018);		
 	}
 
 	int minimum(int array[])
@@ -66,9 +62,7 @@
 
 	int numberOfFathersDays(string childrenNames[], int childrenDOBs[])
 	{
-		time_t now = std::time(0);
-
-		
+		time_t now = std::time(0);		
 
 		return now;
 	}
@@ -84,32 +78,41 @@
 		struct tm* nowInfo = localtime(&now);
 
 		int thisYear = nowInfo->tm_year + 1900; // tm_year returns years from 1900.
-		int thisYearTimestamp = yearToTimestamp(thisYear);
-		int thisFathersDay = thisYearTimestamp + (daysBeforeJune + leapYear(thisYear))*60*60*24; //WRONG
+		time_t thisYearTimestamp = yearToTimestamp(thisYear);
+		time_t thisYearJuneTimestamp = thisYearTimestamp + (daysBeforeJune + leapYear(thisYear))*60*60*24; // The timestamp for 1st June this year.
+		int thisYearJuneDay = localtime(&thisYearJuneTimestamp)->tm_wday; // The day of the week for 1st June on this year.
+		if (thisYearJuneDay == 0) { thisYearJuneDay = 7; } // This sets Sundays to 7, not 0, making the next line easier.
+		time_t thisYearFirstSundayTimestamp = thisYearJuneTimestamp + (7 - thisYearJuneDay)*60*60*24; // Adds on the number of seconds until the first Sunday.
+		time_t thisYearThirdSundayTimestamp = thisYearFirstSundayTimestamp + 2*7*24*60*60; // Adds on a further two week's of seconds.
 
 		int lastYear = thisYear - 1;
-		int lastYearTimestamp = yearToTimestamp(lastYear); 
-		int lastFathersDay = lastYearTimestamp + (daysBeforeJune + leapYear(lastYear))*60*60*24; //WRONG
+		time_t lastYearTimestamp = yearToTimestamp(lastYear); 
+		time_t lastYearJuneTimestamp = lastYearTimestamp + (daysBeforeJune + leapYear(lastYear))*60*60*24; // The timestamp for 1st June last year.
+		int lastYearJuneDay = localtime(&lastYearJuneTimestamp)->tm_wday; // The day of the week for 1st June on this year.
+		if (lastYearJuneDay == 0) { lastYearJuneDay = 7; } // This sets Sundays to 7, not 0, making the next line easier.
+		time_t lastYearFirstSundayTimestamp = lastYearJuneTimestamp + (7 - lastYearJuneDay)*60*60*24; // Adds on the number of seconds until the first Sunday.
+		time_t lastYearThirdSundayTimestamp = lastYearFirstSundayTimestamp + 2*7*24*60*60; // Adds on a further two week's of seconds.
 
-		int mostRecentFathersDay = 0;
+		// Variables we'll use to hold the
+		time_t mostRecentFathersDayTimestamp;
 
-		if (now < thisFathersDay)
+		if (now < thisYearThirdSundayTimestamp)
 		{
-			mostRecentFathersDay = lastFathersDay;
+			mostRecentFathersDayTimestamp = lastYearThirdSundayTimestamp;
 		}
 		else
 		{
-			mostRecentFathersDay = thisFathersDay;
+			mostRecentFathersDayTimestamp = thisYearThirdSundayTimestamp;
 		}
 
-		return mostRecentFathersDay;
+		return mostRecentFathersDayTimestamp;
 	}
 
 	int yearToTimestamp(int year)
 	{
 		int timestamp = 0;
 
-		for (int i = 1970; i <= year; i++)
+		for (int i = 1970; i < year; i++)
 		{
 			timestamp += (365 + leapYear(i)) * 60*60*24; // (days) * seconds*minutes*hours.
 
