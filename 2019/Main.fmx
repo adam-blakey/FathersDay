@@ -1,0 +1,123 @@
+object HeaderFooterForm: THeaderFooterForm
+  Left = 0
+  Top = 0
+  Caption = 'Header Footer Form'
+  ClientHeight = 612
+  ClientWidth = 370
+  FormFactor.Width = 1440
+  FormFactor.Height = 900
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Header: TToolBar
+    Size.Width = 370.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object HeaderLabel: TLabel
+      Align = Contents
+      StyledSettings = [Family, FontColor]
+      Size.Width = 370.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'toollabel'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Center
+      Text = 'Fathers'#39' Day 2019'
+    end
+  end
+  object Footer: TToolBar
+    Align = Bottom
+    Position.Y = 564.000000000000000000
+    Size.Width = 370.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'bottomtoolbar'
+    TabOrder = 1
+    object Calculate: TButton
+      Position.X = 8.000000000000000000
+      Size.Width = 352.000000000000000000
+      Size.Height = 38.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Calculate'
+      OnClick = CalculateClick
+    end
+  end
+  object Label1: TLabel
+    Align = Top
+    Position.Y = 48.000000000000000000
+    Size.Width = 370.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'toollabel'
+    TextSettings.HorzAlign = Center
+    Text = 'How-Many-Years-You'#39've-Spent-As-A-Father-erer'
+    TabOrder = 2
+  end
+  object ChildBox: TVertScrollBox
+    Position.X = 8.000000000000000000
+    Position.Y = 136.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 385.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Viewport.Width = 353.000000000000000000
+    Viewport.Height = 385.000000000000000000
+    object PleaseAddAChild: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 337.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Please add a child.'
+      TabOrder = 0
+    end
+  end
+  object ChildAdd: TButton
+    Position.X = 296.000000000000000000
+    Position.Y = 528.000000000000000000
+    Size.Width = 64.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Add Child'
+    OnClick = ChildAddClick
+  end
+  object ChildName: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    Position.X = 8.000000000000000000
+    Position.Y = 528.000000000000000000
+    Hint = 'Child'#39's name'
+    Size.Width = 209.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object ChildDOB: TDateEdit
+    Date = 36526.000000000000000000
+    Hint = 'Child'#39's date-of-birth'
+    Position.X = 222.000000000000000000
+    Position.Y = 528.000000000000000000
+    Size.Width = 68.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object YearsAsFather: TLabel
+    StyledSettings = [Family, Style, FontColor]
+    Position.X = 8.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 36.000000000000000000
+    TextSettings.HorzAlign = Center
+    Text = '-- years'
+    TabOrder = 7
+  end
+end
