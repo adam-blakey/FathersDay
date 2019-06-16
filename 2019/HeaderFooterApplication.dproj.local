@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.721,C:\Users\Adam\Blakey Cloud\Documents\Fathers' Day\HeaderFooterTemplate.pas=C:\Users\Adam\Blakey Cloud\Documents\Fathers' Day\Main.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.723,C:\Users\Adam\Blakey Cloud\Documents\Fathers' Day\HeaderFooterTemplate.fmx=C:\Users\Adam\Blakey Cloud\Documents\Fathers' Day\Main.fmx</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
