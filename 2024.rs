@@ -9,7 +9,7 @@ fn main() {
   let mut success: Vec<bool> = vec![false; names.len()];
 
   for i in 0..names.len() {
-    (names[i], success[i]) = assess_business_success_with_an_ess(names[i].clone());
+    (names[i], success[i]) = assess_business_success(names[i].clone());
   }
   
   for i in 0..names.len() {
@@ -22,7 +22,7 @@ fn main() {
 }
 
 // Playing around with ownership for no good reason at all.
-fn assess_business_success_with_an_ess(name: String) -> (String, bool) {
+fn assess_business_success(name: String) -> (String, bool) {
   let mut success = false;
   // According to science, this is the only way to be successful.
   if name == "Adam" {
